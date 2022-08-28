@@ -2,9 +2,9 @@ const mongodb = require("mongodb")
 const username = process.env.MONGO_DB_USER;
 const password = process.env.MONGO_DB_PASSWORD;
 const uri = `mongodb+srv://${username}:${password}@cluster0.i0gla.mongodb.net/project-animals?retryWrites=true&w=majority`;
-
 exports.handler = async function (event, context) {
-    const client = await mongodb.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    console.log("DB ENTRY")
+    const client = await mongodb.connect(uri, { useUnifiedTopology: true })
     const db = client.db('endangered')
     console.log("DB ENTRY")
 

@@ -25,6 +25,7 @@ const AnimalsContainer = () => {
 
     // Read in animals data from own api then load any favourites stored in localstorage
     useEffect(() => {
+        console.log("Getting animals");
         AnimalsService.getAnimals()
             .then((data) => {
                 setAnimals(data)

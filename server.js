@@ -8,7 +8,7 @@ app.use(cors())
 
 app.use(bodyParser.json());
 const MongoClient = require('mongodb').MongoClient;
-const createRouter = require('./helpers/create_router.js');
+const createRouter = require('./server/helpers/create_router.js');
 
 const uri = "mongodb+srv://test-user:lAMwocd5lxVH9bQy@cluster0.i0gla.mongodb.net/project-animals?retryWrites=true&w=majority";
 // MongoClient.connect('mongodb://localhost:27017')
