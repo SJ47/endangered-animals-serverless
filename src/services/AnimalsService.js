@@ -3,7 +3,7 @@ const baseURL = "/.netlify/functions/"
 // const baseURL = "http://localhost:8888/"
 const AnimalsService = {
     getAnimals() {
-        return fetch(baseURL + "read-all")
+        return fetch(baseURL + "animals")
             .then(res => res.json());
     }
 };

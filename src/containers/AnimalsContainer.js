@@ -15,13 +15,6 @@ const AnimalsContainer = () => {
     const [selectedAnimal, setSelectedAnimal] = useState(null);
     const [favouriteAnimals, setFavouriteAnimals] = useState([]);
 
-    //state for Quiz SD
-    // const [currentQuestion, setCurrentQuestion] = useState[0];
-    //Quiz button SD
-    // const handleAnswerButtonClick = () => {
-    //     const nextQuestion = currentQuestion
-
-
     // Read in animals data from own api then load any favourites stored in localstorage
     useEffect(() => {
         console.log("Getting animals");
@@ -37,22 +30,11 @@ const AnimalsContainer = () => {
     // Retrieve any favourite animals already stored in localstorage
     // and put them into favourite animals state
     const getLocalStorageFavAnimals = () => {
-        // console.log("Loading local storage items");
-        // window.localStorage.removeItem('lsFavAnimals');
         const restoredData = JSON.parse(window.localStorage.getItem("lsFavAnimals"));
         if (restoredData !== null) {
             setFavouriteAnimals(restoredData);
         }
     }
-
-    // Store favourite animals into localstorage when fav animals list updates
-    // const saveLocalStorageFavAnimals = () => {
-    //     console.log("Saving local storage items");
-    //     // window.localStorage.removeItem('lsFavAnimals');
-    //     window.localStorage.setItem("lsFavAnimals", JSON.stringify(favouriteAnimals));
-
-    // }
-
 
     // Update state with a single animal object that was selected
     const handleSelectedAnimal = (animal) => {
@@ -150,7 +132,6 @@ const AnimalsContainer = () => {
             </div>
 
             <div className="footer">
-
             </div>
 
             <div className="quiz-container">
@@ -158,9 +139,7 @@ const AnimalsContainer = () => {
             </div>
 
             <div className="footer">
-
             </div>
-
         </div>
     )
 }

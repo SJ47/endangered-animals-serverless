@@ -34,7 +34,7 @@ const Map = ({ animals, onMapAnimalClicked }) => {
 
     })
 
-    const accessToken = "pk.eyJ1IjoiZnJlZHdhcmRvIiwiYSI6ImNrbGxibGluYjA4dGoyd2xsMXMyNGx6dWkifQ.l4K--lGNetKj2ioFbfjS1w";
+    const accessToken = process.env.MAPBOX_TOKEN;
     const mapUrl = `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${accessToken}`
 
     // Icon options

@@ -9,7 +9,6 @@ const Quiz = () => {
     const [finished, setFinished] = useState(false)
 
     const getQuestions = () => {
-        // console.log("getting questions")
         fetch(baseURL + "quiz")
             .then(res => res.json())
             .then(data => setQuestions(data))
