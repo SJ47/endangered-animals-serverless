@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Quiz = () => {
-
+    const baseURL = "/.netlify/functions/"
     const [questions, setQuestions] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [loaded, setLoaded] = useState(false);
@@ -10,7 +10,7 @@ const Quiz = () => {
 
     const getQuestions = () => {
         // console.log("getting questions")
-        fetch('http://localhost:5001/api/quiz')
+        fetch(baseURL + "quiz")
             .then(res => res.json())
             .then(data => setQuestions(data))
             .then(() => setLoaded(true))

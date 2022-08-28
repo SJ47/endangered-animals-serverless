@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import AnimalsList from '../components/AnimalsList';
 import Favourites from '../components/Favourites';
 import Map from "../components/Map";
-// import Quiz from "../components/Quiz";
+import Quiz from "../components/Quiz";
 import AnimalsService from "../services/AnimalsService";
 import AnimalDetail from "../components/AnimalDetail";
 import FunFactCard from '../components/FunFactCard';
@@ -120,7 +120,6 @@ const AnimalsContainer = () => {
 
     // Handle what to do when the icon on map is clicked
     const handleMapImageClicked = (mapAnimalClicked) => {
-        // console.log("Map animal Clicked", mapAnimalClicked);
         handleSelectedAnimal(mapAnimalClicked)
     }
 
@@ -128,16 +127,13 @@ const AnimalsContainer = () => {
         <div className="container">
             <header>
                 <h1>Endangered Species</h1>
-                {/* <img className="endangered-species-text" src="images/endangered-text.png" alt="" /> */}
             </header>
 
             <div className="favourites-container">
                 <Favourites favouriteAnimals={favouriteAnimals} onFavImageClicked={handleFavImageClicked} />
             </div>
 
-            {/* <div className="map-container"> */}
             <Map animals={animals} onMapAnimalClicked={handleMapImageClicked} />
-            {/* </div> */}
 
             <div className="facts-container">
                 <h1>Fun fact</h1>
@@ -146,12 +142,10 @@ const AnimalsContainer = () => {
 
             <div className="animals-list-container">
                 <h2>Endangered Animals </h2>
-                {/* <img className="endangered-species-text" src="images/endangered-text.png" alt="" /> */}
                 <AnimalsList animals={animals} onSelectedAnimal={handleSelectedAnimal} />
             </div>
 
             <div className="animal-detail-container">
-                {/* <h2>Animal detail will go here...</h2> */}
                 <AnimalDetail selectedAnimal={selectedAnimal} onFavouriteClick={handleFavouriteClick} />
             </div>
 
@@ -160,8 +154,7 @@ const AnimalsContainer = () => {
             </div>
 
             <div className="quiz-container">
-                {/* <h2>Quiz will go here...</h2> */}
-                {/* <Quiz /> */}
+                <Quiz />
             </div>
 
             <div className="footer">
