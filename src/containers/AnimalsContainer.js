@@ -3,11 +3,10 @@ import React, { useState, useEffect } from 'react';
 import AnimalsList from '../components/AnimalsList';
 import Favourites from '../components/Favourites';
 import Map from "../components/Map";
-// import Quiz from "../components/Quiz";
+import Quiz from "../components/Quiz";
 import AnimalsService from "../services/AnimalsService";
 import AnimalDetail from "../components/AnimalDetail";
 import FunFactCard from '../components/FunFactCard';
-
 
 const AnimalsContainer = () => {
 
@@ -16,15 +15,9 @@ const AnimalsContainer = () => {
     const [selectedAnimal, setSelectedAnimal] = useState(null);
     const [favouriteAnimals, setFavouriteAnimals] = useState([]);
 
-    //state for Quiz SD
-    // const [currentQuestion, setCurrentQuestion] = useState[0];
-    //Quiz button SD
-    // const handleAnswerButtonClick = () => {
-    //     const nextQuestion = currentQuestion
-
-
     // Read in animals data from own api then load any favourites stored in localstorage
     useEffect(() => {
+        console.log("Getting animals");
         AnimalsService.getAnimals()
             .then((data) => {
                 setAnimals(data)
@@ -37,22 +30,11 @@ const AnimalsContainer = () => {
     // Retrieve any favourite animals already stored in localstorage
     // and put them into favourite animals state
     const getLocalStorageFavAnimals = () => {
-        // console.log("Loading local storage items");
-        // window.localStorage.removeItem('lsFavAnimals');
         const restoredData = JSON.parse(window.localStorage.getItem("lsFavAnimals"));
         if (restoredData !== null) {
             setFavouriteAnimals(restoredData);
         }
     }
-
-    // Store favourite animals into localstorage when fav animals list updates
-    // const saveLocalStorageFavAnimals = () => {
-    //     console.log("Saving local storage items");
-    //     // window.localStorage.removeItem('lsFavAnimals');
-    //     window.localStorage.setItem("lsFavAnimals", JSON.stringify(favouriteAnimals));
-
-    // }
-
 
     // Update state with a single animal object that was selected
     const handleSelectedAnimal = (animal) => {
@@ -120,7 +102,6 @@ const AnimalsContainer = () => {
 
     // Handle what to do when the icon on map is clicked
     const handleMapImageClicked = (mapAnimalClicked) => {
-        // console.log("Map animal Clicked", mapAnimalClicked);
         handleSelectedAnimal(mapAnimalClicked)
     }
 
@@ -128,16 +109,13 @@ const AnimalsContainer = () => {
         <div className="container">
             <header>
                 <h1>Endangered Species</h1>
-                {/* <img className="endangered-species-text" src="images/endangered-text.png" alt="" /> */}
             </header>
 
             <div className="favourites-container">
                 <Favourites favouriteAnimals={favouriteAnimals} onFavImageClicked={handleFavImageClicked} />
             </div>
 
-            {/* <div className="map-container"> */}
             <Map animals={animals} onMapAnimalClicked={handleMapImageClicked} />
-            {/* </div> */}
 
             <div className="facts-container">
                 <h1>Fun fact</h1>
@@ -146,28 +124,22 @@ const AnimalsContainer = () => {
 
             <div className="animals-list-container">
                 <h2>Endangered Animals </h2>
-                {/* <img className="endangered-species-text" src="images/endangered-text.png" alt="" /> */}
                 <AnimalsList animals={animals} onSelectedAnimal={handleSelectedAnimal} />
             </div>
 
             <div className="animal-detail-container">
-                {/* <h2>Animal detail will go here...</h2> */}
                 <AnimalDetail selectedAnimal={selectedAnimal} onFavouriteClick={handleFavouriteClick} />
             </div>
 
             <div className="footer">
-
             </div>
 
             <div className="quiz-container">
-                {/* <h2>Quiz will go here...</h2> */}
-                {/* <Quiz /> */}
+                <Quiz />
             </div>
 
             <div className="footer">
-
             </div>
-
         </div>
     )
 }
