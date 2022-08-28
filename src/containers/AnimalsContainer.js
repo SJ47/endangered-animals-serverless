@@ -7,7 +7,7 @@ import Map from "../components/Map";
 import AnimalsService from "../services/AnimalsService";
 import AnimalDetail from "../components/AnimalDetail";
 import FunFactCard from '../components/FunFactCard';
-
+import HelloWorld from "../services/AnimalsService"
 
 const AnimalsContainer = () => {
 
@@ -25,13 +25,19 @@ const AnimalsContainer = () => {
 
     // Read in animals data from own api then load any favourites stored in localstorage
     useEffect(() => {
-        console.log("Getting animals");
+        console.log("Getting data");
         AnimalsService.getAnimals()
             .then((data) => {
-                setAnimals(data)
-                setSelectedAnimal(data[0])
+                console.log("DATA returned: ", data);
             })
-            .then(getLocalStorageFavAnimals)
+
+        // console.log("Getting animals");
+        // AnimalsService.getAnimals()
+        //     .then((data) => {
+        //         setAnimals(data)
+        //         setSelectedAnimal(data[0])
+        //     })
+        //     .then(getLocalStorageFavAnimals)
     }, [])
 
 

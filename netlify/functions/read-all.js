@@ -15,7 +15,11 @@ exports.handler = async function (event, context) {
         client.close()
         return {
             statusCode: 200,
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+
             body: JSON.stringify(animalsCollection)
         }
     } catch (err) {
