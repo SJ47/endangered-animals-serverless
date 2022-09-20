@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5127b2b6-97de-4250-aa0a-a795d627ebcd/deploy-status)](https://app.netlify.com/sites/steady-lolly-726a75/deploys)
 # codeclan_week9_group_project
 
 <h3>Screenshot of application</h3>
